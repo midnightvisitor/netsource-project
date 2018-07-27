@@ -1,0 +1,295 @@
+{
+    "status": 0,
+    "message": "查询数据成功！",
+    "result": [
+        {
+            "id": "a",
+            "name": "网络资源管理",
+            "icon": "el-icon-m-operation",
+            "url": "netsource-module",
+            "second": [
+                {
+                    "id": "b",
+                    "name": "空间资源",
+                    "icon": "",
+                    "url": "/space",
+                    "second": [
+                        {
+                            "id": "b-1",
+                            "name": "行政单位",
+                            "icon": "",
+                            "url": "/",
+                            "second": []
+                        },
+                        {
+                            "id": "b-2",
+                            "name": "站点信息",
+                            "icon": "",
+                            "url": "/",
+                            "second": []
+                        },
+                        {
+                            "id": "b-3",
+                            "name": "机房信息",
+                            "icon": "",
+                            "url": "/",
+                            "second": []
+                        },
+                        {
+                            "id": "b-4",
+                            "name": "设备放置点",
+                            "icon": "",
+                            "url": "/",
+                            "second": []
+                        },
+                        {
+                            "id": "b-5",
+                            "name": "机架信息",
+                            "icon": "",
+                            "url": "/",
+                            "second": []
+                        }
+                    ]
+                },
+                {
+                    "id": "c",
+                    "name": "线路资源",
+                    "icon": "",
+                    "url": "/lineSource",
+                    "second": []
+                },
+                {
+                    "id": "d",
+                    "name": "设备资源",
+                    "icon": "",
+                    "url": "/device",
+                    "second": [
+                        {
+                            "id": "d-1",
+                            "name": "设备信息",
+                            "icon": "",
+                            "url": "/deviceInfo",
+                            "second": []
+                        },
+                        {
+                            "id": "d-2",
+                            "name": "板卡信息",
+                            "icon": "",
+                            "url": "/",
+                            "second": []
+                        }
+                    ]
+                },
+                {
+                    "id": "e",
+                    "name": "逻辑资源",
+                    "icon": "",
+                    "url": "/logic",
+                    "second": [
+                        {
+                            "id": "e-1",
+                            "name": "传输系统",
+                            "icon": "",
+                            "url": "/",
+                            "second": []
+                        },
+                        {
+                            "id": "e-2",
+                            "name": "通道信息",
+                            "icon": "",
+                            "url": "/",
+                            "second": []
+                        }
+                    ]
+                },
+                {
+                    "id": "f",
+                    "name": "业务资源",
+                    "icon": "",
+                    "url": "/business",
+                    "second": [
+                        {
+                            "id": "f-1",
+                            "name": "电路信息",
+                            "icon": "",
+                            "url": "/",
+                            "second": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "g",
+            "name": "拓扑管理",
+            "icon": "el-icon-m-toolkit",
+            "url": "",
+            "second": []
+        },
+        {
+            "id": "h",
+            "name": "资源分析",
+            "icon": "el-icon-m-table",
+            "url": "",
+            "second": []
+        },
+        {
+            "id": "i",
+            "name": "资源调度",
+            "icon": "el-icon-m-logs",
+            "url": "",
+            "second": []
+        },
+        {
+            "id": "j",
+            "name": "资源统计",
+            "icon": "el-icon-m-pie-chart",
+            "url": "",
+            "second": []
+        },
+        {
+            "id": "1",
+            "name": "布局模块",
+            "icon": "el-icon-m-layout",
+            "url": "layout-module",
+            "second": [
+                {
+                    "id": "2",
+                    "name": "公共类",
+                    "icon": "el-icon-m-module",
+                    "url": "/class",
+                    "second": []
+                },
+                {
+                    "id": "3",
+                    "name": "常用布局",
+                    "icon": "el-icon-m-layout",
+                    "url": "/layout",
+                    "second": []
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "name": "方法模块",
+            "icon": "el-icon-m-function",
+            "url": "function-module",
+            "second": [
+                {
+                    "id": "4-1",
+                    "name": "方法说明",
+                    "icon": "el-icon-m-text",
+                    "url": "/function",
+                    "second": []
+                },
+                {
+                    "id": "4-2",
+                    "name": "对象拷贝",
+                    "icon": "el-icon-m-copy",
+                    "url": "/function/copy",
+                    "second": []
+                },
+                {
+                    "id": "4-3",
+                    "name": "数据交互",
+                    "icon": "el-icon-m-http",
+                    "url": "/function/http",
+                    "second": []
+                },
+                {
+                    "id": "4-4",
+                    "name": "本地存储",
+                    "icon": "el-icon-m-data",
+                    "url": "/function/localStorage",
+                    "second": []
+                },
+                {
+                    "id": "4-5",
+                    "name": "弹条提示",
+                    "icon": "el-icon-m-info",
+                    "url": "/function/toast",
+                    "second": []
+                },
+                {
+                    "id": "4-6",
+                    "name": "数组去重",
+                    "icon": "el-icon-m-unique",
+                    "url": "/function/unique",
+                    "second": []
+                },
+                {
+                    "id": "4-8",
+                    "name": "文件上传",
+                    "icon": "el-icon-m-upload-file",
+                    "url": "/function/upload",
+                    "second": []
+                },
+                {
+                    "id": "4-9",
+                    "name": "echart图表",
+                    "icon": "el-icon-m-line-chart",
+                    "url": "/function/echart",
+                    "second": []
+                },
+                {
+                    "id": "4-10",
+                    "name": "格式化日期",
+                    "icon": "el-icon-m-time",
+                    "url": "/function/moment",
+                    "second": []
+                }
+            ]
+        },
+        {
+            "id": "5",
+            "name": "组件模块",
+            "icon": "el-icon-m-modules",
+            "url": "component-module",
+            "second": [
+                {
+                    "id": "6",
+                    "name": "文件上传",
+                    "icon": "el-icon-m-upload",
+                    "url": "/upload",
+                    "second": []
+                },
+                {
+                    "id": "7",
+                    "name": "富文本编辑器",
+                    "icon": "el-icon-m-text",
+                    "url": "/ueditor",
+                    "second": []
+                },
+                {
+                    "id": "8",
+                    "name": "图表",
+                    "icon": "el-icon-m-bar-chart",
+                    "url": "/echarts",
+                    "second": [
+                        {
+                            "id": "8-1",
+                            "name": "折线图",
+                            "icon": "",
+                            "url": "/line",
+                            "second": []
+                        }
+                    ]
+                },
+                {
+                    "id": "9",
+                    "name": "拖拽",
+                    "icon": "el-icon-m-move",
+                    "url": "/drag",
+                    "second": []
+                },
+                {
+                    "id": "10",
+                    "name": "地图",
+                    "icon": "el-icon-m-map",
+                    "url": "/map",
+                    "second": []
+                }
+            ]
+        }
+    ]
+}

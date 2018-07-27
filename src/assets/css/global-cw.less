@@ -1,0 +1,85 @@
+//add the content font style
+@import "../../assets/css/modules/variables";
+@import "../../assets/css/modules/function";
+html,body,input,textarea,button{
+  font-family: "微软雅黑";
+}
+// 搜索页面 内容表格白色边框设置
+.c-search-table{
+  border: 1px solid @border-color;
+  .radius (@radius: 5px);
+  padding: 15px;
+}
+// 搜索页面 内容表格的标题设置
+.c-title{
+  margin-top: 15px;
+  span{
+    font-weight: normal;
+    font-size: 16px;
+    border-bottom: 3px solid @link-color;
+    color: @link-color;
+    display: inline-block;
+    line-height: 30px;
+  }
+  p{
+    line-height: 26px;
+    vertical-align: bottom;
+    a{
+      font-size: 16px;
+      margin-left: 15px;
+      cursor: pointer;
+      i{
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+//搜索页面 搜索部分的样式设置
+.c-search {
+  border:1px solid @border-color;
+  padding: 10px;
+  overflow: hidden;
+  position: relative;
+  .radius (@radius: 5px);
+  table {
+    width: 100%;
+    padding-right: 210px;
+    tr {
+      td:nth-child(1),
+      td:nth-child(3),
+      td:nth-child(5) {
+        width: 3%;
+        text-align: right;
+      }
+      td:nth-child(2),
+      td:nth-child(4),
+      td:nth-child(6) {
+        width: 25%;
+        padding: 5px 20px 5px 5px;
+        input {
+          width: 100%;
+        }
+      }
+      td:last-child {
+        text-align: right;
+        > span{
+          width: 1px;
+          border-left: 1px solid @placeholder-color ;
+          padding: 6px 5px;
+        }
+        a{
+          padding-right: 3px;
+          cursor: pointer;
+        }
+        a:hover{
+          color:@link-color;
+        }
+      }
+    }
+  }
+}
+// 间距
+.mt-15{
+  margin-top: 15px;
+}

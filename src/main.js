@@ -6,6 +6,10 @@ import App from './App';
 import router from './router';
 import store from './vuex/index';
 
+// import twaver.js by zhilong.liu at 2018.07.30
+import './router/twaver.js';
+// 去除告警
+Vue.config.productionTip = false;
 // import filters
 import './filter/index.js';
 

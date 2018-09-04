@@ -15,7 +15,13 @@
                     <td><el-input size="mini"></el-input></td>
                     <td>
                         <nobr>
-                            <a @click="showSeach()">{{ setShowMsg }}<i v-bind:class="{'el-icon-arrow-down el-icon--right': styleArrow ,'el-icon-arrow-up el-icon--right': setShow}"></i></a>
+                            <a @click="showSeach()">
+                                {{ setShowMsg }}
+                                <i v-bind:class="{
+                                'el-icon-arrow-down el-icon--right': styleArrow ,
+                                'el-icon-arrow-up el-icon--right': setShow}"
+                                ></i>
+                            </a>
                             <span></span>
                             <el-button type="primary" size="small">&nbsp;查询&nbsp;</el-button>
                         </nobr>
@@ -41,22 +47,60 @@
             <span>设备信息表</span>
             <p class="fr">
                 <a @click="handleShowEditDialog"><i class="el-icon-plus el-icon--left"></i>新增</a>
-                <a><i class="el-icon-m-arrow-down el-icon--left"></i>导入</a>
+                <a><i class="el-icon-download el-icon--left"></i>导入</a>
                 <a @click="showExport"><i class="el-icon-upload2 el-icon--left"></i>导出</a>
             </p>
         </div>
         <div class="c-search-table">
-            <el-table :data="tableData" stripe>
-                <el-table-column label="序号" width="100" align="center" type="index"></el-table-column>
-                <el-table-column label="设备名称" align="left" prop="value1"></el-table-column>
-                <el-table-column label="所属网络" align="left" prop="value2"></el-table-column>
-                <el-table-column label="所属系统" align="left" prop="value3"></el-table-column>
-                <el-table-column label="设备网管标识" align="left" prop="value4"></el-table-column>
-                <el-table-column label="设备厂家" align="left" prop="value5"></el-table-column>
-                <el-table-column label="设备型号" align="left" prop="value6"></el-table-column>
-                <el-table-column label="所属线别" align="left" prop="value7"></el-table-column>
-                <el-table-column label="所属车间" align="center" prop="value8"></el-table-column>
-                <el-table-column label="操作" align="center">
+            <!-- 分页 Start -->
+            <!--<table class="c-table c-stripe c-border c-hover c-state txt-center">
+                <thead class="bg-thead">
+                    <tr>
+                        <th>序号</th>
+                        <th>设备名称</th>
+                        <th>所属网络</th>
+                        <th>所属系统</th>
+                        <th>设备网管标识</th>
+                        <th>设备厂家</th>
+                        <th>设备型号</th>
+                        <th>所属线别</th>
+                        <th>所属车间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item, index) in list" :key="item.id"
+                        :data="list.slice((currentPage-1)*pagesize,currentPage*pagesize)">
+                        <td v-text="index + 1"></td>
+                        <td v-text="item.name"></td>
+                        <td v-text="item.net"></td>
+                        <td v-text="item.system"></td>
+                        <td v-text="item.title"></td>
+                        <td v-text="item.vender"></td>
+                        <td v-text="item.type"></td>
+                        <td v-text="item.line"></td>
+                        <td v-text="item.shop"></td>
+                        <td>
+                            <div>
+                                <a class="show-underline" href="#">查看</a>
+                                <a class="show-underline" href="#" @click="handleShowEditDialog">编辑</a>
+                                <a class="show-underline" href="#" @click="handleShowTips">删除</a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>-->
+            <el-table :data="list.slice((currentPage-1)*pagesize,currentPage*pagesize)">
+                <el-table-column type="index" label="序号"></el-table-column>
+                <el-table-column prop="name" label="设备名称"></el-table-column>
+                <el-table-column prop="net" label="所属网络"></el-table-column>
+                <el-table-column prop="system" label="所属系统"></el-table-column>
+                <el-table-column prop="title" label="设备网管标识"></el-table-column>
+                <el-table-column prop="vender" label="设备厂家"></el-table-column>
+                <el-table-column prop="type" label="设备型号"></el-table-column>
+                <el-table-column prop="line" label="所属线别"></el-table-column>
+                <el-table-column prop="shop" label="所属车间"></el-table-column>
+                <el-table-column label="操作">
                     <template slot-scope="scope">
                         <div>
                             <a class="show-underline" href="#">查看</a>
@@ -66,12 +110,18 @@
                     </template>
                 </el-table-column>
             </el-table>
-            <!-- 分页 Start -->
             <div class="t-center mt-15">
                 <el-pagination
                     background
-                    layout="prev, pager, next"
-                    :total="1000">
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"
+                    :current-page="currentPage"
+                    :page-sizes="[5, 10, 20, 50]"
+                    :page-size="pagesize"
+                    layout="total, sizes, prev, pager, next, jumper"
+                    prev-text="上一页"
+                    next-text="下一页"
+                    :total="list.length">
                 </el-pagination>
             </div>
             <!-- 分页 End -->
@@ -80,119 +130,50 @@
     </div>
 </template>
 <script>
+    let Mock = require('mockjs'); // 测试数据
     export default {
         data () {
             return {
+                currentPage: 1,
+                pagesize: 10,
+                list: [],
                 setShow: false,
                 setShowMsg: '更多查询条件',
                 styleArrow: true,
                 setContent: '',
-                setTitle: '',
-                tableData: [
-                    {
-                        value1: '武夷山东10G扩',
-                        value2: '局干/汇聚层网络',
-                        value3: '合福线SDH10G(中兴)L',
-                        value4: '10-武夷山东10G扩',
-                        value5: '中兴',
-                        value6: 'ZXMP S385 EPE1Z20070500',
-                        value7: '合福线',
-                        value8: '南平北车间'
-                    },
-                    {
-                        value1: '武夷山东10G扩',
-                        value2: '局干/汇聚层网络',
-                        value3: '合福线SDH10G(中兴)L',
-                        value4: '10-武夷山东10G扩',
-                        value5: '中兴',
-                        value6: 'ZXMP S385 EPE1Z20070500',
-                        value7: '合福线',
-                        value8: '南平北车间'
-                    },
-                    {
-                        value1: '武夷山东10G扩',
-                        value2: '局干/汇聚层网络',
-                        value3: '合福线SDH10G(中兴)L',
-                        value4: '10-武夷山东10G扩',
-                        value5: '中兴',
-                        value6: 'ZXMP S385 EPE1Z20070500',
-                        value7: '合福线',
-                        value8: '南平北车间'
-                    },
-                    {
-                        value1: '武夷山东10G扩',
-                        value2: '局干/汇聚层网络',
-                        value3: '合福线SDH10G(中兴)L',
-                        value4: '10-武夷山东10G扩',
-                        value5: '中兴',
-                        value6: 'ZXMP S385 EPE1Z20070500',
-                        value7: '合福线',
-                        value8: '南平北车间'
-                    },
-                    {
-                        value1: '武夷山东10G扩',
-                        value2: '局干/汇聚层网络',
-                        value3: '合福线SDH10G(中兴)L',
-                        value4: '10-武夷山东10G扩',
-                        value5: '中兴',
-                        value6: 'ZXMP S385 EPE1Z20070500',
-                        value7: '合福线',
-                        value8: '南平北车间'
-                    },
-                    {
-                        value1: '武夷山东10G扩',
-                        value2: '局干/汇聚层网络',
-                        value3: '合福线SDH10G(中兴)L',
-                        value4: '10-武夷山东10G扩',
-                        value5: '中兴',
-                        value6: 'ZXMP S385 EPE1Z20070500',
-                        value7: '合福线',
-                        value8: '南平北车间'
-                    },
-                    {
-                        value1: '武夷山东10G扩',
-                        value2: '局干/汇聚层网络',
-                        value3: '合福线SDH10G(中兴)L',
-                        value4: '10-武夷山东10G扩',
-                        value5: '中兴',
-                        value6: 'ZXMP S385 EPE1Z20070500',
-                        value7: '合福线',
-                        value8: '南平北车间'
-                    },
-                    {
-                        value1: '武夷山东10G扩',
-                        value2: '局干/汇聚层网络',
-                        value3: '合福线SDH10G(中兴)L',
-                        value4: '10-武夷山东10G扩',
-                        value5: '中兴',
-                        value6: 'ZXMP S385 EPE1Z20070500',
-                        value7: '合福线',
-                        value8: '南平北车间'
-                    },
-                    {
-                        value1: '武夷山东10G扩',
-                        value2: '局干/汇聚层网络',
-                        value3: '合福线SDH10G(中兴)L',
-                        value4: '10-武夷山东10G扩',
-                        value5: '中兴',
-                        value6: 'ZXMP S385 EPE1Z20070500',
-                        value7: '合福线',
-                        value8: '南平北车间'
-                    },
-                    {
-                        value1: '武夷山东10G扩',
-                        value2: '局干/汇聚层网络',
-                        value3: '合福线SDH10G(中兴)L',
-                        value4: '10-武夷山东10G扩',
-                        value5: '中兴',
-                        value6: 'ZXMP S385 EPE1Z20070500',
-                        value7: '合福线',
-                        value8: '南平北车间'
-                    }
-                ]
+                setTitle: ''
             };
         },
+        computed: {
+        },
         methods: {
+            getlist () {
+                let data = {
+                    'list|15': [
+                        {
+                            'id': '@guid',
+                            'name': '@cword(3)',
+                            'net': '@cword(3)',
+                            'system': '@cword(6)',
+                            'title': '@cword(5)',
+                            'vender': '@city()' + '@cword(2)' + '有限公司',
+                            'type': /[A-Z]{2,5}-\d{5,7}/,
+                            'line': '@cword(2,3)' + '线',
+                            'shop': '@cword(3,5)' + '通信车间'
+                        }
+                    ]
+                };
+                let result = Mock.mock(data);
+                this.list = result.list;
+            },
+            handleSizeChange(size) {
+                this.pagesize = size;
+                console.log(`每页 ${size} 条`);
+            },
+            handleCurrentChange(currentPage) {
+                this.currentPage = currentPage;
+                console.log(`当前页: ${currentPage}`);
+            },
             handleShowEditDialog () { // 编辑
                 this.$router.push({
                     path: '/edit'
@@ -233,6 +214,9 @@
                     path: '/'
                 });
             }
+        },
+        mounted (){
+            this.getlist();
         }
     };
 </script>

@@ -18,35 +18,35 @@
                             "id": "b-1",
                             "name": "行政单位",
                             "icon": "",
-                            "url": "/",
+                            "url": "",
                             "second": []
                         },
                         {
                             "id": "b-2",
                             "name": "站点信息",
                             "icon": "",
-                            "url": "/",
+                            "url": "",
                             "second": []
                         },
                         {
                             "id": "b-3",
                             "name": "机房信息",
                             "icon": "",
-                            "url": "/",
+                            "url": "",
                             "second": []
                         },
                         {
                             "id": "b-4",
                             "name": "设备放置点",
                             "icon": "",
-                            "url": "/",
+                            "url": "",
                             "second": []
                         },
                         {
                             "id": "b-5",
-                            "name": "机架信息",
+                            "name": "机架",
                             "icon": "",
-                            "url": "/",
+                            "url": "",
                             "second": []
                         }
                     ]
@@ -75,7 +75,7 @@
                             "id": "d-2",
                             "name": "板卡信息",
                             "icon": "",
-                            "url": "/",
+                            "url": "",
                             "second": []
                         }
                     ]
@@ -90,14 +90,7 @@
                             "id": "e-1",
                             "name": "传输系统",
                             "icon": "",
-                            "url": "/",
-                            "second": []
-                        },
-                        {
-                            "id": "e-2",
-                            "name": "通道信息",
-                            "icon": "",
-                            "url": "/",
+                            "url": "",
                             "second": []
                         }
                     ]
@@ -112,7 +105,7 @@
                             "id": "f-1",
                             "name": "电路信息",
                             "icon": "",
-                            "url": "/",
+                            "url": "",
                             "second": []
                         }
                     ]
@@ -123,8 +116,51 @@
             "id": "g",
             "name": "拓扑管理",
             "icon": "el-icon-m-toolkit",
-            "url": "",
-            "second": []
+            "url": "transfertopo-module",
+            "second": [
+                {
+                    "id": "g-1",
+                    "name": "传输拓扑图",
+                    "icon": "",
+                    "url": "/transferTopo",
+                    "second": []
+                },
+                {
+                    "id": "g-2",
+                    "name": "设备面板图",
+                    "icon": "",
+                    "url": "",
+                    "second": []
+                },
+                {
+                    "id": "g-3",
+                    "name": "通道组织图",
+                    "icon": "",
+                    "url": "",
+                    "second": []
+                },
+                {
+                    "id": "g-4",
+                    "name": "通道路由图",
+                    "icon": "",
+                    "url": "",
+                    "second": []
+                },
+                {
+                    "id": "g-5",
+                    "name": "电路路由图",
+                    "icon": "",
+                    "url": "",
+                    "second": []
+                },
+                {
+                    "id": "g-6",
+                    "name": "业务网图",
+                    "icon": "",
+                    "url": "",
+                    "second": []
+                }
+            ]
         },
         {
             "id": "h",
@@ -145,150 +181,95 @@
             "name": "资源统计",
             "icon": "el-icon-m-pie-chart",
             "url": "",
-            "second": []
-        },
-        {
-            "id": "1",
-            "name": "布局模块",
-            "icon": "el-icon-m-layout",
-            "url": "layout-module",
             "second": [
                 {
-                    "id": "2",
-                    "name": "公共类",
-                    "icon": "el-icon-m-module",
-                    "url": "/class",
-                    "second": []
-                },
-                {
-                    "id": "3",
-                    "name": "常用布局",
-                    "icon": "el-icon-m-layout",
-                    "url": "/layout",
-                    "second": []
-                }
-            ]
-        },
-        {
-            "id": "4",
-            "name": "方法模块",
-            "icon": "el-icon-m-function",
-            "url": "function-module",
-            "second": [
-                {
-                    "id": "4-1",
-                    "name": "方法说明",
-                    "icon": "el-icon-m-text",
-                    "url": "/function",
-                    "second": []
-                },
-                {
-                    "id": "4-2",
-                    "name": "对象拷贝",
-                    "icon": "el-icon-m-copy",
-                    "url": "/function/copy",
-                    "second": []
-                },
-                {
-                    "id": "4-3",
-                    "name": "数据交互",
-                    "icon": "el-icon-m-http",
-                    "url": "/function/http",
-                    "second": []
-                },
-                {
-                    "id": "4-4",
-                    "name": "本地存储",
-                    "icon": "el-icon-m-data",
-                    "url": "/function/localStorage",
-                    "second": []
-                },
-                {
-                    "id": "4-5",
-                    "name": "弹条提示",
-                    "icon": "el-icon-m-info",
-                    "url": "/function/toast",
-                    "second": []
-                },
-                {
-                    "id": "4-6",
-                    "name": "数组去重",
-                    "icon": "el-icon-m-unique",
-                    "url": "/function/unique",
-                    "second": []
-                },
-                {
-                    "id": "4-8",
-                    "name": "文件上传",
-                    "icon": "el-icon-m-upload-file",
-                    "url": "/function/upload",
-                    "second": []
-                },
-                {
-                    "id": "4-9",
-                    "name": "echart图表",
-                    "icon": "el-icon-m-line-chart",
-                    "url": "/function/echart",
-                    "second": []
-                },
-                {
-                    "id": "4-10",
-                    "name": "格式化日期",
-                    "icon": "el-icon-m-time",
-                    "url": "/function/moment",
-                    "second": []
-                }
-            ]
-        },
-        {
-            "id": "5",
-            "name": "组件模块",
-            "icon": "el-icon-m-modules",
-            "url": "component-module",
-            "second": [
-                {
-                    "id": "6",
-                    "name": "文件上传",
-                    "icon": "el-icon-m-upload",
-                    "url": "/upload",
-                    "second": []
-                },
-                {
-                    "id": "7",
-                    "name": "富文本编辑器",
-                    "icon": "el-icon-m-text",
-                    "url": "/ueditor",
-                    "second": []
-                },
-                {
-                    "id": "8",
-                    "name": "图表",
-                    "icon": "el-icon-m-bar-chart",
-                    "url": "/echarts",
+                    "id": "k",
+                    "name": "资源使用率",
+                    "icon": "",
+                    "url": "",
                     "second": [
                         {
-                            "id": "8-1",
-                            "name": "折线图",
+                            "id": "k-1",
+                            "name": "使用率",
                             "icon": "",
-                            "url": "/line",
+                            "url": "",
+                            "second": []
+                        },
+                        {
+                            "id": "k-2",
+                            "name": "统计分析",
+                            "icon": "",
+                            "url": "",
                             "second": []
                         }
                     ]
                 },
                 {
-                    "id": "9",
-                    "name": "拖拽",
-                    "icon": "el-icon-m-move",
-                    "url": "/drag",
-                    "second": []
+                    "id": "l",
+                    "name": "资源台账",
+                    "icon": "",
+                    "url": "",
+                    "second": [
+                        {
+                            "id": "l-1",
+                            "name": "物理资源",
+                            "icon": "",
+                            "url": "",
+                            "second": []
+                        },
+                        {
+                            "id": "l-2",
+                            "name": "逻辑资源",
+                            "icon": "",
+                            "url": "",
+                            "second": []
+                        },
+                        {
+                            "id": "l-3",
+                            "name": "业务资源",
+                            "icon": "",
+                            "url": "",
+                            "second": []
+                        }
+                    ]
                 },
                 {
-                    "id": "10",
-                    "name": "地图",
-                    "icon": "el-icon-m-map",
-                    "url": "/map",
-                    "second": []
+                    "id": "m",
+                    "name": "检修计表",
+                    "icon": "",
+                    "url": "",
+                    "second": [
+                        {
+                            "id": "m-1",
+                            "name": "光功率计表",
+                            "icon": "",
+                            "url": "",
+                            "second": []
+                        },
+                        {
+                            "id": "m-2",
+                            "name": "通道误码记录表",
+                            "icon": "",
+                            "url": "",
+                            "second": []
+                        },
+                        {
+                            "id": "m-3",
+                            "name": "SDH设备时钟状态记录表",
+                            "icon": "",
+                            "url": "",
+                            "second": []
+                        },
+                        {
+                            "id": "m-4",
+                            "name": "SDH环倒换实验测试记录表",
+                            "icon": "",
+                            "url": "",
+                            "second": []
+                        }
+                    ]
                 }
+
             ]
         }
     ]

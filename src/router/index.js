@@ -54,12 +54,20 @@ let routerConfig = {
                         {
                             path: '/lineSource',
                             name: 'line-source',
-                            component: resolve => require(['@/views/netsource/line/lineSource.vue'], resolve),
+                            component: resolve => require(['@/views/netsource/line/LineSource.vue'], resolve),
                             meta: {
                                 title: '线路资源'
                             }
                         }
                     ]
+                },
+                {
+                    path: 'transfertopo',
+                    name: 'transfer-topo',
+                    component: resolve => require(['@/views/transfertopo/TransferTopo.vue'], resolve),
+                    meta: {
+                        title: '传输拓扑图'
+                    }
                 },
                 {
                     path: 'class',
